@@ -22,7 +22,6 @@ export const usePhotoStore = create<PhotoStore>((set) => ({
             set({ photos: response, loading: false })
         } catch (error: any) {
             if (error instanceof AxiosError) {
-                console.error('Error status:', error.response);
                 set({ error: error.message })
             }
         } finally {
@@ -36,7 +35,6 @@ export const usePhotoStore = create<PhotoStore>((set) => ({
             set({ photos: response, loading: false })
         } catch (error: any) {
             if (error instanceof AxiosError) {
-                console.error('Error status:', error.response);
                 set({ error: error.message })
             }
         } finally {

@@ -4,9 +4,10 @@ import { Spinner } from "../Loader/Spinner"
 import { useEffect } from "react"
 import { FavoritesGallery } from "./FavoritesGallery"
 import { FadeIn } from "./FadeIn"
+import { ErrorGallery } from "./ErrorGallery"
 
 export function Gallery() {
-    const { photos, loading, getPhotos, getPhotosByQuery } = usePhotos()
+    const { photos, loading, error, getPhotos, getPhotosByQuery } = usePhotos()
     const { searchFilter, categoryFilter, favoritesFilter } = useFilters()
     const { favoritesPhotos, getFavorites } = useFavorites()
 
@@ -28,6 +29,10 @@ export function Gallery() {
 
     if (favoritesFilter) {
         return <FavoritesGallery />
+    }
+     
+    if (error) {
+        return <ErrorGallery />
     }
     
     return (
